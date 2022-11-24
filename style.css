@@ -1,0 +1,38 @@
+.center {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+    height: 30%;
+    text-align: center;
+    font-size: medium;
+}
+
+.box {
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    height: 100%;
+}
+
+.center2 {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+    height: 90%;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-image: url("bg.jpg");
+}
+
+img {
+    width: 70%;
+}
+
+h1 {
+    font-size: 100px;
+}

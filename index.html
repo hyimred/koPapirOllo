@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kő, Papír, Olló</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    <div class="container-fluid m-4 box">
+
+        <div class="row center2">
+
+            <div class="col-9">
+                <div id="p2" class="center"></div>
+                <div class="center"><h1 id="eredmeny">VS</h1></div>
+                <div id="p1" class="center">
+                    <div class="row">
+                        <div class="col">
+                            <img src="Olló.png" alt=""><br>
+                            <button class="btn" onclick="Ollo()">Olló</button>
+                        </div>
+                        <div class="col">
+                            <img src="Kő.png" alt=""><br>
+                            <button class="btn" onclick="Ko()">Kő</button>
+                        </div>
+                        <div class="col">
+                            <img src="Papír.png" alt=""><br>
+                            <button class="btn" onclick="Papir()">Papír</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div><h3  id="gyozelem"></h3></div>
+                <div><h3  id="dontetlen"></h3></div>
+                <div><h3  id="vereseg"></h3></div>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        const lista = [
+            "Kő",
+            "Papír",
+            "Olló",
+        ];
+        var gyozelem = 0;
+        var vereseg = 0;
+        var dontetlen = 0;
+        let eredmeny = "";
+        document.getElementById("gyozelem").innerHTML = "Gyözelem: "
+        document.getElementById("dontetlen").innerHTML = "Döntetlen: "
+        document.getElementById("vereseg").innerHTML = "Vereség: "
+        document.getElementById("p2").innerHTML = "<h2>???</h2>"
+
+        function Ollo() {
+            const szam = Math.floor(Math.random() * lista.length);
+            const p1_valaszt = "Olló";
+            const p2_valaszt = lista[szam];
+            if (p2_valaszt == "Olló") {
+                eredmeny = "Döntetlen"
+                dontetlen++
+            }
+            if (p2_valaszt == "Kő") {
+                eredmeny = "Vereség"
+                vereseg++
+            }
+            if (p2_valaszt == "Papír") {
+                eredmeny = "Gyözelem"
+                gyozelem++
+            }
+            document.getElementById("gyozelem").innerHTML = "Gyözelem: "+gyozelem
+            document.getElementById("dontetlen").innerHTML = "Döntetlen: "+dontetlen
+            document.getElementById("vereseg").innerHTML = "Vereség: "+vereseg
+            document.getElementById("p2").innerHTML = "<img style='width: 20%;' src='"+p2_valaszt+".png'><br><p>"+p2_valaszt+"</p>"
+            document.getElementById("eredmeny").innerHTML = eredmeny
+        }
+
+        function Ko() {
+            const szam = Math.floor(Math.random() * lista.length);
+            const p1_valaszt = "Kő";
+            const p2_valaszt = lista[szam];
+            if (p2_valaszt == "Olló") {
+                eredmeny = "Gyözelem"
+                gyozelem++
+            }
+            if (p2_valaszt == "Kő") {
+                eredmeny = "Döntetlen"
+                dontetlen++
+            }
+            if (p2_valaszt == "Papír") {
+                eredmeny = "Vereség"
+                vereseg++
+            }
+            document.getElementById("p2").innerHTML = "<img style='width: 20%;' src='"+p2_valaszt+".png'><br><p>"+p2_valaszt+"</p>"
+            document.getElementById("gyozelem").innerHTML = "Gyözelem: "+gyozelem
+            document.getElementById("dontetlen").innerHTML = "Döntetlen: "+dontetlen
+            document.getElementById("vereseg").innerHTML = "Vereség: "+vereseg
+            document.getElementById("eredmeny").innerHTML = eredmeny
+        }
+        
+        function Papir() {
+            const szam = Math.floor(Math.random() * lista.length);
+            const p1_valaszt = "Papír";
+            const p2_valaszt = lista[szam];
+            if (p2_valaszt == "Olló") {
+                eredmeny = "Vereség"
+                vereseg++
+            }
+            if (p2_valaszt == "Kő") {
+                eredmeny = "Gyözelem"
+                gyozelem++
+            }
+            if (p2_valaszt == "Papír") {
+                eredmeny = "Döntetlen"
+                dontetlen++
+            }
+            document.getElementById("p2").innerHTML = "<img style='width: 20%;' src='"+p2_valaszt+".png'><br><p>"+p2_valaszt+"</p>"
+            document.getElementById("gyozelem").innerHTML = "Gyözelem: "+gyozelem
+            document.getElementById("dontetlen").innerHTML = "Döntetlen: "+dontetlen
+            document.getElementById("vereseg").innerHTML = "Vereség: "+vereseg
+            document.getElementById("eredmeny").innerHTML = eredmeny
+        }
+
+    </script>
+</body>
+</html>
